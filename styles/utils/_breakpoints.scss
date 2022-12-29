@@ -1,0 +1,13 @@
+@use 'functions' as f;
+
+$breakpoints-up: (
+  'small': f.em(370),
+  'medium': f.em(768),
+  'xlarge': f.em(1440),
+);
+
+@mixin breakpoint($size) {
+  @media (min-width: map-get($breakpoints-up,$size)) {
+    @content;
+  }
+}
