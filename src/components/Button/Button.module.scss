@@ -1,0 +1,15 @@
+.button {
+  position: relative;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: var(--textWhite);
+  border: 0;
+  padding-block: 16px;
+  cursor: pointer;
+
+  background-image: linear-gradient(var(--detailsColor), var(--detailsColor)),
+    linear-gradient(#feb2b2, #feb2b2);
+  background-size: 100% 2px, 0 2px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+}
