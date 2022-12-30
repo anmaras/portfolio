@@ -1,18 +1,42 @@
+@use '../utils/' as *;
+
 .grid {
   display: grid;
   min-height: inherit;
+  background-color: var(--mainBgColor);
+  grid-template-rows: repeat(4, 1fr);
+  &__about,
+  &__skills,
+  &__projects {
+    width: min(100% - rem(28), 1220px);
+    margin-inline: auto;
+
+    @include breakpoint(medium) {
+      width: min(100% - rem(50), 1220px);
+    }
+  }
 
   &__about {
-    background-color: red;
+    padding-bottom: rem(80);
+    border-bottom: 2px solid var(--textGrey);
+
+    @include breakpoint(medium) {
+      padding-bottom: rem(60);
+    }
+
+    @include breakpoint(xlarge) {
+      position: relative;
+      padding-bottom: rem(280);
+    }
   }
   &__skills {
-    background-color: blue;
+    padding-block: rem(40);
   }
   &__projects {
-    background-color: green;
+    padding-block: rem(80);
   }
 
   &__contact {
-    background-color: palevioletred;
+    background-color: var(--formBgColor);
   }
 }

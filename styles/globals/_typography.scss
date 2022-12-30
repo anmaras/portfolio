@@ -4,16 +4,37 @@ $font: 'Space Grotesk', sans-serif;
 
 body {
   font-family: $font;
+  font-size: rem(16);
+  font-weight: 500;
+  line-height: 1.55;
+
+  @include breakpoint(medium) {
+    font-size: rem(18);
+    font-weight: 500;
+  }
+}
+
+.button {
+  font-size: rem(16);
+  line-height: 1;
+  letter-spacing: 2.5px;
 }
 
 .headingXL {
-  font-size: rem(88);
+  font-size: rem(40);
   line-height: 1;
   letter-spacing: -2.5px;
+
+  @include breakpoint(medium) {
+    font-size: rem(72);
+  }
+  @include breakpoint(xlarge) {
+    font-size: rem(88);
+  }
 }
 
 .headingL {
-  font-size: rem(48);
+  font-size: rem(24);
   line-height: 1.2;
   letter-spacing: -1.5px;
 }
@@ -21,4 +42,13 @@ body {
 .headingM {
   font-size: rem(24);
   line-height: 1.35;
+}
+
+.headingS {
+  font-size: rem(24);
+  line-height: 1.35;
+
+  @include breakpoint(medium) {
+    font-size: rem(32);
+  }
 }
