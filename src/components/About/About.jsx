@@ -9,33 +9,10 @@ const About = () => {
   return (
     <div className={style.title}>
       <picture className={style['title__img']}>
-        <source
-          media="(min-width:1220px)"
-          srcSet={desktop}
-          // width={widthDesk}
-          // height={heightDesk}
-        />
-        <source
-          media="(min-width:768px)"
-          srcSet={tablet}
-          // width={widthTab}
-          // height={heightTab}
-        />
-        <source
-          media="(min-width:375px)"
-          srcSet={mobile}
-          // width={widthMob}
-          // height={heightMob}
-        />
-
-        <img
-          src={mobile}
-          // alt={alt}
-          // className={style['picture__img']}
-          // width={widthMob}
-          // height={heightMob}
-          loading="lazy"
-        />
+        <source media="(min-width:1220px)" srcSet={desktop} />
+        <source media="(min-width:768px)" srcSet={tablet} />
+        <source media="(min-width:375px)" srcSet={mobile} />
+        <img src={mobile} alt="my picture" />
       </picture>
       <div className={style['title__textWrapper']}>
         <h1 className={[style['title__text'], 'headingXL'].join(' ')}>
