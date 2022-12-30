@@ -20,13 +20,9 @@
     padding-bottom: rem(80);
     border-bottom: 2px solid var(--textGrey);
 
-    @include breakpoint(medium) {
-      padding-bottom: rem(60);
-    }
-
     @include breakpoint(xlarge) {
+      padding-bottom: rem(180);
       position: relative;
-      padding-bottom: rem(280);
     }
   }
   &__skills {
