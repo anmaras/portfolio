@@ -1,0 +1,15 @@
+@use '../../../styles/utils/' as *;
+
+.list {
+  display: grid;
+  justify-content: center;
+  gap: rem(20);
+
+  &__item {
+    display: grid;
+    justify-items: center;
+  }
+
+  &__img {
+  }
+}
