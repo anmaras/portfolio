@@ -19,7 +19,7 @@ const About = () => {
           {`Nice to meet you! I'm`} <span>{`Antonis Maras`}</span>.
         </h1>
         <p className={style['title__subtitle']}>
-          {`Based in the UK, I'm a front-end developer passionate about building
+          {`Based in Athens, I'm a front-end developer passionate about building
         accessible web apps that users love.`}
         </p>
         <Button text="contact me" type="button" />
