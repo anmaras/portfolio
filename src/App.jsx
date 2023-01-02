@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, About, Skills } from './components/index';
+import { Navbar, About, Skills, Projects } from './components/index';
 
 function App() {
   return (
@@ -11,7 +11,9 @@ function App() {
       <section className="grid__skills">
         <Skills />
       </section>
-      <section className="grid__projects">Projects</section>
+      <section className="grid__projects">
+        <Projects />
+      </section>
       <section className="grid__contact">
         <Navbar />
       </section>
