@@ -1,0 +1,48 @@
+@use '../../../styles/utils/' as *;
+.projects {
+  display: grid;
+
+  &__imgWrapper {
+    position: relative;
+    margin-top: rem(40);
+    margin-bottom: rem(25);
+  }
+
+  &__imgButtons {
+    display: none;
+  }
+
+  &__name {
+    text-transform: uppercase;
+    margin-bottom: rem(20);
+  }
+
+  &__description {
+    color: var(--textGrey);
+    font-weight: 500;
+    margin-bottom: rem(35);
+  }
+
+  &__techList {
+    display: flex;
+    // grid-template-columns: 1fr 1fr 1fr;
+    flex-wrap: wrap;
+    gap: rem(10);
+    text-transform: uppercase;
+    margin-bottom: rem(35);
+  }
+  &__tech {
+    // flex: 1;
+    color: var(--textGrey);
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    justify-content: center;
+  }
+
+  &__buttonsWrapper {
+    display: flex;
+    width: 100%;
+    gap: rem(30);
+  }
+}

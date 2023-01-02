@@ -15,9 +15,7 @@ const Skills = () => {
             >
               {iconUrl}
             </IconContext.Provider>
-            <h2 className={[style['list__text'], 'headingL'].join(' ')}>
-              {icon}
-            </h2>
+            <p className={[style['list__text']].join(' ')}>{icon}</p>
           </li>
         );
       })}

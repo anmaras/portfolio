@@ -38,10 +38,10 @@
   &__textWrapper {
     grid-row: 2/-1;
     display: grid;
-    gap: rem(28);
     justify-items: center;
     z-index: 10;
     text-align: center;
+    align-items: center;
 
     @include breakpoint(medium) {
       justify-items: flex-start;

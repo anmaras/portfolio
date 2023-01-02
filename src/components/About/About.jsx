@@ -22,7 +22,7 @@ const About = () => {
           {`Based in Athens, I'm a front-end developer passionate about building
         accessible web apps that users love.`}
         </p>
-        <Button text="contact me" type="button" />
+        <Button text="contact me" type="button" link="" />
       </div>
     </div>
   );
