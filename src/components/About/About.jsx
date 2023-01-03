@@ -22,7 +22,11 @@ const About = () => {
           {`Based in Athens, I'm a front-end developer passionate about building
         accessible web apps that users love.`}
         </p>
-        <Button text="contact me" type="button" link="" />
+        {/* <div className={style['title__buttonsWrapper']}> */}
+        {/* <Button text="skills" type="button" location="skills" /> */}
+        {/* <Button text="projects" type="button" location="projects" /> */}
+        <Button text="contact me" type="button" location="contact" />
+        {/* </div> */}
       </div>
     </div>
   );

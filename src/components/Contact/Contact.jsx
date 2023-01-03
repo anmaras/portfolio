@@ -43,8 +43,8 @@ const Contact = () => {
           <textarea
             name="message"
             id="message"
-            cols="30"
-            rows="5"
+            // cols="30"
+            rows="3"
             className={style['contact__input']}
             placeholder="message"
             required
