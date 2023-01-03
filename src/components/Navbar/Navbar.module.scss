@@ -1,5 +1,9 @@
 @use '../../../styles/utils/' as *;
 
+.navbar--bottom {
+  padding-inline: unset;
+}
+
 .navbar {
   position: relative;
   padding-block: rem(26);
@@ -33,5 +37,11 @@
     @include breakpoint(xlarge) {
       padding-right: rem(16);
     }
+  }
+
+  &__iconsWrapper--bottom {
+    @extend .navbar__iconsWrapper;
+    padding-right: unset;
+    // background-color: red;
   }
 }
