@@ -1,0 +1,96 @@
+@use '../../../styles/utils/' as *;
+
+.contact {
+  display: grid;
+  width: min(100% - rem(28), 1220px);
+  margin-inline: auto;
+
+  @include breakpoint(xlarge) {
+    width: min(100% - rem(50), 1220px);
+    grid-template-columns: 1fr 1fr;
+    column-gap: rem(100);
+  }
+
+  &__titleWrapper {
+    text-align: center;
+    max-width: 445px;
+    margin-inline: auto;
+
+    @include breakpoint(xlarge) {
+      text-align: left;
+    }
+  }
+
+  &__form {
+    display: grid;
+    width: min(100%, 445px);
+    margin-inline: auto;
+
+    @include breakpoint(xlarge) {
+      grid-column: 2/-1;
+      grid-row: 1/2;
+      width: unset;
+      margin: unset;
+    }
+  }
+
+  &__subtext {
+    color: var(--textGrey);
+    margin-block: rem(35);
+  }
+
+  &__controller {
+    position: relative;
+  }
+
+  &__icon,
+  &__warning {
+    color: var(--textError);
+  }
+
+  &__icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+
+  &__input {
+    width: 100%;
+    background-color: transparent;
+    border: 0;
+    resize: none;
+    border-bottom: 2px solid var(--textGrey);
+    color: var(--textWhite);
+    padding-block: rem(16);
+
+    &:focus {
+      outline: 0;
+    }
+
+    &::placeholder {
+      text-transform: uppercase;
+    }
+  }
+
+  button,
+  &__warning {
+    justify-self: end;
+  }
+
+  &__warning {
+    font-size: 12px;
+    margin: rem(3);
+  }
+
+  button {
+    margin-top: rem(40);
+    margin-bottom: rem(90);
+  }
+
+  &__navbarWrapper {
+    padding-top: rem(60);
+    border-top: 2px solid var(--textGrey);
+    grid-column: 1/-1;
+  }
+}
