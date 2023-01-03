@@ -2,8 +2,14 @@ import React from 'react';
 import style from './Projects.module.scss';
 import { projects } from '../../utils/constants';
 import Button from '../Button/Button';
+import { useState } from 'react';
 
 const Projects = () => {
+  const [currId, setCurrId] = useState('');
+
+  const mouseOver = (id) => setCurrId(id);
+  const mouseOut = () => setCurrId('');
+
   return (
     <>
       <h2 className="headingXL">Projects</h2>
@@ -20,12 +26,22 @@ const Projects = () => {
             description,
           } = project;
           return (
-            <li key={id} className={style['projects__item']}>
+            <li
+              key={id}
+              className={style['projects__item']}
+              onMouseEnter={() => mouseOver(id)}
+              onMouseLeave={mouseOut}
+            >
               <div className={style['projects__imgWrapper']}>
-                <div className={style['projects__imgButtons']}>
-                  <Button text="view project" type="link" link={liveUrl} />
-                  <Button text="view code" type="link" link={githubUrl} />
-                </div>
+                {currId === id ? (
+                  <>
+                    <div className={style['projects__backdrop']}></div>
+                    <div className={style['projects__imgButtons']}>
+                      <Button text="view project" type="link" link={liveUrl} />
+                      <Button text="view code" type="link" link={githubUrl} />
+                    </div>
+                  </>
+                ) : null}
                 <picture className={style['projects__img']}>
                   <source media="(min-width:768px)" srcSet={urlBig} />
                   <source media="(min-width:375px)" srcSet={urlSmall} />

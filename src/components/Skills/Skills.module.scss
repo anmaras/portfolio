@@ -4,12 +4,10 @@
   display: grid;
   justify-content: center;
   gap: rem(20);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 
   &__item {
     display: grid;
     justify-items: center;
-  }
-
-  &__img {
   }
 }

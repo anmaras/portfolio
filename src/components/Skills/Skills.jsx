@@ -11,7 +11,7 @@ const Skills = () => {
         return (
           <li key={id} className={style['list__item']}>
             <IconContext.Provider
-              value={{ className: `${style['list__img']}`, size: 100 }}
+              value={{ className: `${style['list__img']}`, size: 70 }}
             >
               {iconUrl}
             </IconContext.Provider>
