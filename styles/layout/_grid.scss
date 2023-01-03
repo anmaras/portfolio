@@ -35,5 +35,11 @@
 
   &__contact {
     background-color: var(--formBgColor);
+    padding-top: rem(80);
+    padding-bottom: rem(60);
+
+    @include breakpoint(xlarge) {
+      position: relative;
+    }
   }
 }
