@@ -10,6 +10,7 @@
   &__projects {
     width: min(100% - rem(28), 1220px);
     margin-inline: auto;
+    scroll-margin-top: rem(-10);
 
     @include breakpoint(medium) {
       width: min(100% - rem(50), 1220px);
