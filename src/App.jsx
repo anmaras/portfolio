@@ -1,11 +1,11 @@
 import React from 'react';
-import { Navbar, About, Skills, Projects } from './components/index';
+import { Navbar, About, Skills, Projects, Contact } from './components/index';
 
 function App() {
   return (
     <main className="grid">
       <section className="grid__about">
-        <Navbar />
+        <Navbar position={true} />
         <About />
       </section>
       <section className="grid__skills">
@@ -15,7 +15,7 @@ function App() {
         <Projects />
       </section>
       <section className="grid__contact">
-        <Navbar />
+        <Contact />
       </section>
     </main>
   );
