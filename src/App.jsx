@@ -8,13 +8,13 @@ function App() {
         <Navbar position={true} />
         <About />
       </section>
-      <section className="grid__skills">
+      <section className="grid__skills" id="skills">
         <Skills />
       </section>
-      <section className="grid__projects">
+      <section className="grid__projects" id="projects">
         <Projects />
       </section>
-      <section className="grid__contact">
+      <section className="grid__contact" id="contact">
         <Contact />
       </section>
     </main>
