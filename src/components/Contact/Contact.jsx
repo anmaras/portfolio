@@ -3,8 +3,34 @@ import Button from '../Button/Button';
 import style from './Contact.module.scss';
 import { RiErrorWarningLine } from 'react-icons/ri';
 import Navbar from '../Navbar/Navbar';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+
+const initialValues = {
+  name: '',
+  email: '',
+  message: '',
+};
+
+const validationSchema = yup.object({
+  name: yup.string().required('Please include your name.'),
+  email: yup
+    .string()
+    .email('Your email should be a valid format.')
+    .required('Please include your email'),
+  message: yup.string().max().required('Please include your message'),
+});
+
+const onSubmit = (values) => console.log(values);
 
 const Contact = () => {
+  const { values, handleChange, handleSubmit, errors, handleBlur, touched } =
+    useFormik({
+      initialValues,
+      onSubmit,
+      validationSchema: validationSchema,
+    });
+
   return (
     <div className={style.contact}>
       <div className={style['contact__titleWrapper']}>
@@ -14,7 +40,11 @@ const Contact = () => {
         you as soon as possible.`}
         </p>
       </div>
-      <form action="" className={style['contact__form']}>
+      <form
+        action=""
+        className={style['contact__form']}
+        onSubmit={handleSubmit}
+      >
         <div className={style['contact__controller']}>
           <input
             type="text"
@@ -22,11 +52,30 @@ const Contact = () => {
             name="name"
             placeholder="name"
             className={style['contact__input']}
-            required
+            value={values.name}
+            onChange={handleChange}
+            onBlur={handleBlur}
           />
-          <RiErrorWarningLine className={style['contact__icon']} size={30} />
+          <RiErrorWarningLine
+            className={
+              errors.name && touched.name
+                ? style['contact__icon--visible']
+                : style['contact__icon--hidden']
+            }
+            size={30}
+          />
         </div>
-        <p className={style['contact__warning']}>Name cant be empty</p>
+        <div className={style['contact__warningWrapper']}>
+          <p
+            className={
+              errors.name && touched.name
+                ? style['contact__warning--visible']
+                : style['contact__warning--hidden']
+            }
+          >
+            {errors.name}
+          </p>
+        </div>
         <div className={style['contact__controller']}>
           <input
             type="email"
@@ -34,23 +83,53 @@ const Contact = () => {
             name="email"
             placeholder="email"
             className={style['contact__input']}
-            required
+            value={values.email}
+            onChange={handleChange}
+            onBlur={handleBlur}
           />
-          <RiErrorWarningLine className={style['contact__icon']} size={30} />
+          <RiErrorWarningLine
+            className={
+              errors.email && touched.email
+                ? style['contact__icon--visible']
+                : style['contact__icon--hidden']
+            }
+            size={30}
+          />
         </div>
-        <p className={style['contact__warning']}>Sorry, invalid format here</p>
+        <div className={style['contact__warningWrapper']}>
+          <p
+            className={
+              errors.email && touched.email
+                ? style['contact__warning--visible']
+                : style['contact__warning--hidden']
+            }
+          >
+            {errors.email}
+          </p>
+        </div>
         <div className={style['contact__controller']}>
           <textarea
             name="message"
             id="message"
-            // cols="30"
             rows="3"
             className={style['contact__input']}
             placeholder="message"
-            required
+            value={values.message}
+            onChange={handleChange}
+            onBlur={handleBlur}
           />
         </div>
-        <p className={style['contact__warning']}>Please type your message</p>
+        <div className={style['contact__warningWrapper']}>
+          <p
+            className={
+              errors.message && touched.message
+                ? style['contact__warning--visible']
+                : style['contact__warning--hidden']
+            }
+          >
+            {errors.message}
+          </p>
+        </div>
         <Button type="submit" text="send message" link="" />
       </form>
       <div className={style['contact__navbarWrapper']}>

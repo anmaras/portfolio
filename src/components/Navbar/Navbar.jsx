@@ -21,7 +21,7 @@ const Navbar = ({ position }) => {
           <a href="https://github.com/anmaras" target="_blank" rel="noreferrer">
             <AiFillGithub className={style['navbar__icon']} size={25} />
           </a>
-          <a target="_blank" rel="noreferrer">
+          <a href="" target="_blank" rel="noreferrer">
             <AiFillLinkedin className={style['navbar__icon']} size={25} />
           </a>
           <a href={imgUrl} download>

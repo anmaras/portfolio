@@ -1,5 +1,10 @@
 @use '../../../styles/utils/' as *;
 
+$iconOpacityTransition: opacity 0.25s ease-in-out;
+$iconTransformTransition: transform 0.25s ease-in-out;
+
+$warningOpacityTransition: opacity 0.25s ease-in-out;
+
 .contact {
   display: grid;
   width: min(100% - rem(28), 1220px);
@@ -42,18 +47,24 @@
 
   &__controller {
     position: relative;
+    overflow: hidden;
   }
 
-  &__icon,
-  &__warning {
+  &__icon--visible {
     color: var(--textError);
-  }
-
-  &__icon {
     position: absolute;
     right: 0;
     top: 50%;
-    transform: translate(0, -50%);
+    transform: translate(0, -50%) scale(1);
+    opacity: 1;
+    transition: $iconOpacityTransition, $iconTransformTransition;
+  }
+
+  &__icon--hidden {
+    @extend .contact__icon--visible;
+    transform: translate(0, -50%) scale(0);
+    opacity: 0;
+    transition: $iconOpacityTransition, $iconTransformTransition;
   }
 
   &__input {
@@ -61,6 +72,7 @@
     background-color: transparent;
     border: 0;
     resize: none;
+    height: 100%;
     border-bottom: 2px solid var(--textGrey);
     color: var(--textWhite);
     padding-block: rem(12);
@@ -74,24 +86,31 @@
     }
   }
 
-  button,
-  &__warning {
+  &__warningWrapper {
     justify-self: end;
+    margin-top: rem(5);
+    margin-bottom: rem(10);
+    overflow: hidden;
+    min-height: 33.594px;
   }
 
-  &__warning {
+  &__warning--visible {
     color: var(--textError);
     font-size: rem(12);
+    opacity: 1;
+    transition: $warningOpacityTransition;
   }
 
-  &__warning:nth-child(2),
-  &__warning:nth-child(4) {
-    margin-top: rem(8);
+  &__warning--hidden {
+    @extend .contact__warning--visible;
+    opacity: 0;
+    transition: $warningOpacityTransition;
   }
 
   button {
     margin-top: rem(40);
     margin-bottom: rem(90);
+    justify-self: end;
   }
 
   &__navbarWrapper {
