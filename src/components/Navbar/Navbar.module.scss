@@ -24,6 +24,7 @@
   &__name,
   &__icon {
     color: var(--textWhite);
+    transition: 0.5s;
   }
 
   &__iconsWrapper {
@@ -32,6 +33,7 @@
 
     a > svg:hover {
       color: var(--detailsColor);
+      transition: 0.5s;
     }
 
     @include breakpoint(xlarge) {

@@ -2,12 +2,16 @@
 
 .list {
   display: grid;
-  justify-content: center;
+  // justify-content: center;
   gap: rem(20);
-  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
 
   &__item {
     display: grid;
     justify-items: center;
+
+    &:hover {
+      color: var(--detailsColor);
+    }
   }
 }

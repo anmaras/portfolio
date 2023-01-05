@@ -6,11 +6,22 @@
   border: 0;
   padding-bottom: 16px;
   cursor: pointer;
+  text-align: center;
+  width: fit-content;
 
   background-image: linear-gradient(var(--detailsColor), var(--detailsColor)),
-    linear-gradient(#feb2b2, #feb2b2);
+    linear-gradient(var(--textError), var(--textError));
   background-size: 100% 2px, 0 2px;
   background-position: 100% 100%, 0 100%;
   background-repeat: no-repeat;
   text-decoration: none;
+  transition: background-size 0.5s 0.25s ease-in-out, color 0.2s linear;
+
+  &:hover {
+    color: var(--detailsColor);
+    background-size: 0 2px, 100% 2px;
+  }
+  &:active {
+    transform: scale(0.9);
+  }
 }

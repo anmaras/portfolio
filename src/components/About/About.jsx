@@ -4,17 +4,70 @@ import Button from '../Button/Button';
 import mobile from '../../assets/image-profile-mobile.webp';
 import tablet from '../../assets/image-profile-tablet.webp';
 import desktop from '../../assets/image-profile-desktop.webp';
+import { motion } from 'framer-motion';
+
+const textVariant = {
+  initial: {
+    x: '-100%',
+  },
+  animate: {
+    x: 0,
+    transition: {
+      when: 'beforeChildren',
+      type: 'spring',
+      duration: 1,
+      delay: 0.5,
+    },
+  },
+};
+
+const buttonVariant = {
+  initial: {
+    opacity: 0,
+    y: 50,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: 'tween',
+      ease: 'circOut',
+      duration: 0.5,
+    },
+  },
+};
+
+const pictureVariant = {
+  initial: { y: -1000 },
+  animate: {
+    y: -30,
+    transition: {
+      type: 'spring',
+      duration: 1.5,
+    },
+  },
+};
 
 const About = () => {
   return (
     <div className={style.title}>
-      <picture className={style['title__img']}>
+      <motion.picture
+        className={style['title__img']}
+        initial="initial"
+        animate="animate"
+        variants={pictureVariant}
+      >
         <source media="(min-width:1220px)" srcSet={desktop} />
         <source media="(min-width:768px)" srcSet={tablet} />
         <source media="(min-width:375px)" srcSet={mobile} />
         <img src={mobile} alt="my picture" />
-      </picture>
-      <div className={style['title__textWrapper']}>
+      </motion.picture>
+      <motion.div
+        className={style['title__textWrapper']}
+        initial="initial"
+        animate="animate"
+        variants={textVariant}
+      >
         <h1 className={[style['title__text'], 'headingXL'].join(' ')}>
           {`Nice to meet you! I'm`} <span>{`Antonis Maras`}</span>.
         </h1>
@@ -22,12 +75,14 @@ const About = () => {
           {`Based in Athens, I'm a front-end developer passionate about building
         accessible web apps that users love.`}
         </p>
-        {/* <div className={style['title__buttonsWrapper']}> */}
-        {/* <Button text="skills" type="button" location="skills" /> */}
-        {/* <Button text="projects" type="button" location="projects" /> */}
-        <Button text="contact me" type="button" location="contact" />
-        {/* </div> */}
-      </div>
+
+        <motion.div
+          className={style['title__buttonWrapper']}
+          variants={buttonVariant}
+        >
+          <Button text="contact me" type="button" location="contact" />
+        </motion.div>
+      </motion.div>
     </div>
   );
 };

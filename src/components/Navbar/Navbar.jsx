@@ -3,6 +3,7 @@ import { AiFillFile, AiFillGithub, AiFillLinkedin } from 'react-icons/Ai';
 import style from './Navbar.module.scss';
 import imgUrl from '../../assets/cv.pdf';
 import PropTypes from 'prop-types';
+import { motion } from 'framer-motion';
 
 const Navbar = ({ position }) => {
   return (
@@ -18,15 +19,32 @@ const Navbar = ({ position }) => {
               : style['navbar__iconsWrapper--bottom']
           }
         >
-          <a href="https://github.com/anmaras" target="_blank" rel="noreferrer">
+          <motion.a
+            href="https://github.com/anmaras"
+            target="_blank"
+            rel="noreferrer"
+            whileHover={{ scale: 1.2 }}
+            transition={{ type: 'spring', stiffness: 800, damping: 10 }}
+          >
             <AiFillGithub className={style['navbar__icon']} size={25} />
-          </a>
-          <a href="" target="_blank" rel="noreferrer">
+          </motion.a>
+          <motion.a
+            href=""
+            target="_blank"
+            rel="noreferrer"
+            whileHover={{ scale: 1.2 }}
+            transition={{ type: 'spring', stiffness: 800, damping: 10 }}
+          >
             <AiFillLinkedin className={style['navbar__icon']} size={25} />
-          </a>
-          <a href={imgUrl} download>
+          </motion.a>
+          <motion.a
+            href={imgUrl}
+            download
+            whileHover={{ scale: 1.2 }}
+            transition={{ type: 'spring', stiffness: 800, damping: 10 }}
+          >
             <AiFillFile className={style['navbar__icon']} size={25} />
-          </a>
+          </motion.a>
         </div>
       </div>
     </nav>

@@ -3,6 +3,7 @@ import style from './Projects.module.scss';
 import { projects } from '../../utils/constants';
 import Button from '../Button/Button';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const Projects = () => {
   const [currId, setCurrId] = useState('');
@@ -14,7 +15,7 @@ const Projects = () => {
     <>
       <h2 className="headingXL">Projects</h2>
       <ul className={style.projects}>
-        {projects.map((project) => {
+        {projects.map((project, index) => {
           const {
             id,
             title: name,
@@ -26,19 +27,38 @@ const Projects = () => {
             description,
           } = project;
           return (
-            <li
+            <motion.li
               key={id}
               className={style['projects__item']}
               onMouseEnter={() => mouseOver(id)}
               onMouseLeave={mouseOut}
+              initial={{ y: 100, opacity: 0 }}
+              whileInView={{
+                y: 0,
+                opacity: 1,
+                transition: { delay: 0.2 * index },
+              }}
+              viewport={{ once: true }}
             >
               <div className={style['projects__imgWrapper']}>
                 {currId === id ? (
                   <>
-                    <div className={style['projects__backdrop']}></div>
+                    <motion.div
+                      className={style['projects__backdrop']}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1, transition: { duration: 0.1 } }}
+                    ></motion.div>
                     <div className={style['projects__imgButtons']}>
-                      <Button text="view project" type="link" link={liveUrl} />
-                      <Button text="view code" type="link" link={githubUrl} />
+                      <motion.div initial={{ x: '-100%' }} animate={{ x: 0 }}>
+                        <Button
+                          text="view project"
+                          type="link"
+                          link={liveUrl}
+                        />
+                      </motion.div>
+                      <motion.div initial={{ x: '100%' }} animate={{ x: 0 }}>
+                        <Button text="view code" type="link" link={githubUrl} />
+                      </motion.div>
                     </div>
                   </>
                 ) : null}
@@ -69,7 +89,7 @@ const Projects = () => {
                 <Button text="view project" type="link" link={liveUrl} />
                 <Button text="view code" type="link" link={githubUrl} />
               </div>
-            </li>
+            </motion.li>
           );
         })}
       </ul>
