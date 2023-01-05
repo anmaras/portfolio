@@ -1,9 +1,14 @@
 import React from 'react';
 import { Navbar, About, Skills, Projects, Contact } from './components/index';
+import { motion } from 'framer-motion';
 
 function App() {
   return (
-    <main className="grid">
+    <motion.main
+      className="grid"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
       <section className="grid__about">
         <Navbar position={true} />
         <About />
@@ -17,7 +22,7 @@ function App() {
       <section className="grid__contact" id="contact">
         <Contact />
       </section>
-    </main>
+    </motion.main>
   );
 }
 
