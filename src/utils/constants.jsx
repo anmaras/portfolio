@@ -6,8 +6,8 @@ import audioSmall from '../assets/audio-small.webp';
 import audioLarge from '../assets/audio-large.webp';
 import memorySmall from '../assets/memory-small.webp';
 import memoryLarge from '../assets/memory-large.webp';
-import weatherSmall from '../assets/weather-small.webp';
-import weatherLarge from '../assets/weather-large.webp';
+// import weatherSmall from '../assets/weather-small.webp';
+// import weatherLarge from '../assets/weather-large.webp';
 
 import {
   DiCss3,
@@ -69,15 +69,15 @@ export const projects = [
     liveUrl: 'https://antonis-maras-memory.netlify.app/',
     id: 1,
   },
-  {
-    title: 'weather app',
-    tech: ['html', 'CSS', 'javascript'],
-    description:
-      'A weather application that provides current, hourly and daily forecast weather data.',
-    urlSmall: weatherSmall,
-    urlBig: weatherLarge,
-    githubUrl: 'https://github.com/anmaras/weather-app',
-    liveUrl: 'https://antonis-maras-weather-app.netlify.app/',
-    id: 3,
-  },
+  // {
+  //   title: 'weather app',
+  //   tech: ['html', 'CSS', 'javascript'],
+  //   description:
+  //     'A weather application that provides current, hourly and daily forecast weather data.',
+  //   urlSmall: weatherSmall,
+  //   urlBig: weatherLarge,
+  //   githubUrl: 'https://github.com/anmaras/weather-app',
+  //   liveUrl: 'https://antonis-maras-weather-app.netlify.app/',
+  //   id: 3,
+  // },
 ];
