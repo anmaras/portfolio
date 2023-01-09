@@ -2,12 +2,12 @@ import React from 'react';
 import style from './Button.module.scss';
 import PropTypes from 'prop-types';
 
-const Button = ({ text, type, link, location }) => {
+const Button = ({ text, type, link, element }) => {
   if (type === 'button') {
     return (
-      <a className={[style.button, 'button'].join(' ')} href={`#${location}`}>
+      <button className={[style.button, 'button'].join(' ')} onClick={element}>
         {text}
-      </a>
+      </button>
     );
   }
   if (type === 'submit') {
@@ -31,7 +31,7 @@ Button.propTypes = {
   text: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
+  element: PropTypes.func,
 };
 
 Button.defaultProps = {
