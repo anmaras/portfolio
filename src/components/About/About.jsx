@@ -3,7 +3,7 @@ import style from './About.module.scss';
 import Button from '../Button/Button';
 import mobile from '../../assets/image-profile-mobile.webp';
 import tablet from '../../assets/image-profile-tablet.webp';
-import desktop from '../../assets/image-profile-desktop.webp';
+import desktop from '../../assets/image-profile-desktop.jpg';
 import { motion } from 'framer-motion';
 
 const textVariant = {
@@ -14,8 +14,8 @@ const textVariant = {
     x: 0,
     transition: {
       when: 'beforeChildren',
-      type: 'spring',
-      duration: 1,
+      duration: 0.65,
+      ease: 'anticipate',
       delay: 0.5,
     },
   },
