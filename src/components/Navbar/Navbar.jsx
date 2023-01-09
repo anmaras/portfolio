@@ -1,7 +1,6 @@
 import React from 'react';
 import { AiFillFile, AiFillGithub, AiFillLinkedin } from 'react-icons/Ai';
 import style from './Navbar.module.scss';
-import imgUrl from '../../assets/cv.pdf';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 
@@ -23,23 +22,27 @@ const Navbar = ({ position }) => {
             href="https://github.com/anmaras"
             target="_blank"
             rel="noreferrer"
+            title="GitHub"
             whileHover={{ scale: 1.2 }}
             transition={{ type: 'spring', stiffness: 800, damping: 10 }}
           >
             <AiFillGithub className={style['navbar__icon']} size={25} />
           </motion.a>
           <motion.a
-            href=""
+            href="https://www.linkedin.com/in/antonis-maras-20672220a/"
             target="_blank"
             rel="noreferrer"
+            title="LinkedIn"
             whileHover={{ scale: 1.2 }}
             transition={{ type: 'spring', stiffness: 800, damping: 10 }}
           >
             <AiFillLinkedin className={style['navbar__icon']} size={25} />
           </motion.a>
           <motion.a
-            href={imgUrl}
-            download
+            href="https://drive.google.com/file/d/1LyA7k0qytd3r2lJ6rWCM2nac2pQFSaeu/view?usp=share_link"
+            title="CV"
+            rel="noreferrer"
+            target="_blank"
             whileHover={{ scale: 1.2 }}
             transition={{ type: 'spring', stiffness: 800, damping: 10 }}
           >
