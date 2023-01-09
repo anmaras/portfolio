@@ -49,6 +49,13 @@ const pictureVariant = {
 };
 
 const About = () => {
+  const element = () => {
+    const contact = document.getElementById('contact');
+    if (contact) {
+      contact.scrollIntoView();
+    }
+  };
+
   return (
     <div className={style.title}>
       <motion.picture
@@ -72,15 +79,15 @@ const About = () => {
           {`Nice to meet you! I'm`} <span>{`Antonis Maras`}</span>.
         </h1>
         <p className={style['title__subtitle']}>
-          {`Based in Athens, I'm a front-end developer passionate about building
-        accessible web apps that users love.`}
+          {`Based in Athens, I'm a web developer passionate about building
+        accessible websites and web apps that users love.`}
         </p>
 
         <motion.div
           className={style['title__buttonWrapper']}
           variants={buttonVariant}
         >
-          <Button text="contact me" type="button" location="contact" />
+          <Button text="contact me" type="button" element={element} />
         </motion.div>
       </motion.div>
     </div>
