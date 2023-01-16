@@ -69,7 +69,7 @@ $warningOpacityTransition: opacity 0.25s ease-in-out;
 
   &__input {
     width: 100%;
-    background-color: transparent;
+    background-color: var(--formBgColor);
     border: 0;
     resize: none;
     height: 100%;
@@ -117,5 +117,32 @@ $warningOpacityTransition: opacity 0.25s ease-in-out;
     padding-top: rem(60);
     border-top: 2px solid var(--textGrey);
     grid-column: 1/-1;
+  }
+
+  &__submitMsg {
+    color: var(--detailsColor);
+    text-align: center;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: rem(20);
+    top: 0;
+    width: max-content;
+    background-color: var(--detailsColor);
+    color: var(--textWhite);
+    padding: rem(16);
+    transform: translateY(-200px);
+    transition: 0.25s;
+
+    &--visible {
+      @extend .contact__submitMsg;
+      transform: translateX(0);
+    }
+
+    p {
+      color: var(--formBgColor);
+    }
   }
 }
