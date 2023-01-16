@@ -5,6 +5,7 @@ import { RiErrorWarningLine } from 'react-icons/ri';
 import Navbar from '../Navbar/Navbar';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { useState } from 'react';
 
 const initialValues = {
   name: '',
@@ -13,17 +14,42 @@ const initialValues = {
 };
 
 const validationSchema = yup.object({
-  name: yup.string().required('Please include your name.'),
+  name: yup
+    .string()
+    .max(50, 'Max length of name is 100 characters')
+    .required('Please include your name.'),
   email: yup
     .string()
     .email('Your email should be a valid format.')
     .required('Please include your email'),
-  message: yup.string().max().required('Please include your message'),
+  message: yup.string().required('Please include your message'),
 });
 
-const onSubmit = (values) => console.log(values);
-
 const Contact = () => {
+  const [submit, setSubmit] = useState(false);
+
+  const onSubmit = async (values) => {
+    setSubmit(true);
+    try {
+      const { email, name, message } = values;
+      await fetch('https://formsubmit.co/ajax/marasantonis@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+        }),
+      });
+      setSubmit(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const { values, handleChange, handleSubmit, errors, handleBlur, touched } =
     useFormik({
       initialValues,
@@ -40,11 +66,7 @@ const Contact = () => {
         you as soon as possible.`}
         </p>
       </div>
-      <form
-        action=""
-        className={style['contact__form']}
-        onSubmit={handleSubmit}
-      >
+      <form className={style['contact__form']} onSubmit={handleSubmit}>
         <div className={style['contact__controller']}>
           <input
             type="text"
@@ -132,6 +154,15 @@ const Contact = () => {
         </div>
         <Button type="submit" text="send message" link="" />
       </form>
+      <div
+        className={
+          submit
+            ? style['contact__submitMsg--visible']
+            : style['contact__submitMsg']
+        }
+      >
+        <p className="headingL">Message Successfully Submitted</p>
+      </div>
       <div className={style['contact__navbarWrapper']}>
         <Navbar position={false} />
       </div>
