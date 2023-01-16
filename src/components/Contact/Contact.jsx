@@ -28,10 +28,13 @@ const validationSchema = yup.object({
 const Contact = () => {
   const [submit, setSubmit] = useState(false);
 
-  const onSubmit = async (values) => {
+  const onSubmit = async (values, onSubmitProps) => {
+    onSubmitProps.setSubmitting(false);
+    onSubmitProps.resetForm();
+
     setSubmit(true);
     try {
-      const { email, name, message } = values;
+      let { email, name, message } = values;
       await fetch('https://formsubmit.co/ajax/marasantonis@gmail.com', {
         method: 'POST',
         headers: {
@@ -45,6 +48,8 @@ const Contact = () => {
         }),
       });
       setSubmit(false);
+      onSubmitProps.setSubmitting(false);
+      onSubmitProps.resetForm();
     } catch (error) {
       console.log(error);
     }
@@ -66,7 +71,11 @@ const Contact = () => {
         you as soon as possible.`}
         </p>
       </div>
-      <form className={style['contact__form']} onSubmit={handleSubmit}>
+      <form
+        className={style['contact__form']}
+        onSubmit={handleSubmit}
+        autoComplete="on"
+      >
         <div className={style['contact__controller']}>
           <input
             type="text"
@@ -161,7 +170,7 @@ const Contact = () => {
             : style['contact__submitMsg']
         }
       >
-        <p className="headingL">Message Successfully Submitted</p>
+        <p className="headingL">Message Successfully Sent 🙏</p>
       </div>
       <div className={style['contact__navbarWrapper']}>
         <Navbar position={false} />
