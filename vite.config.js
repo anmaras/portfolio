@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 import autoprefixer from 'autoprefixer';
 
 export default defineConfig({
-  base: '/Portfolio/',
+  base: '/portfolio/',
   plugins: [react()],
   css: {
     postcss: {
