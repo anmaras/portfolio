@@ -76,6 +76,7 @@ const Contact = () => {
         onSubmit={handleSubmit}
         autoComplete="on"
       >
+        <input type="text" name="_honey" style={{ display: 'none' }} />
         <div className={style['contact__controller']}>
           <input
             type="text"
