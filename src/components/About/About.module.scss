@@ -2,7 +2,7 @@
 
 .title {
   display: grid;
-  grid-template-rows: minmax(250px, 1fr) 1fr;
+  grid-template-rows: minmax(250px, 280px) 1fr;
 
   @include breakpoint(medium) {
     grid-template-columns: 1fr 1fr;
@@ -43,16 +43,22 @@
     z-index: 10;
     text-align: center;
     align-items: center;
+    gap: rem(30);
 
     @include breakpoint(medium) {
       justify-items: flex-start;
       text-align: left;
-      gap: rem(50);
       margin-left: rem(3);
     }
   }
 
   &__text {
+    max-width: 400px;
+
+    @include breakpoint(medium) {
+      max-width: unset;
+    }
+
     span {
       white-space: nowrap;
       background-image: linear-gradient(
@@ -64,20 +70,19 @@
       background-position: 100% 100%, 0 100%;
       background-repeat: no-repeat;
       transition: background-size 1s linear;
-
-      &:hover {
-        // background-size: 0 5px, 100% 5px;
-      }
     }
   }
 
   &__subtitle {
     color: var(--textGrey);
+    max-width: 400px;
+
+    @include breakpoint(medium) {
+      max-width: unset;
+    }
+
     @include breakpoint(xlarge) {
       max-width: 445px;
     }
-  }
-  &__buttonWrapper {
-    // margin-top: rem(32);
   }
 }
