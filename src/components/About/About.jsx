@@ -79,7 +79,7 @@ const About = () => {
           {`Nice to meet you! I'm`} <span>{`Antonis Maras`}</span>.
         </h1>
         <p className={style['title__subtitle']}>
-          {`Based in Athens, I'm a web developer passionate about building
+          {`Based in Athens, I'm a frontend developer passionate about building
         accessible websites and web apps that users love.`}
         </p>
 
