@@ -5,6 +5,7 @@ import mobile from '../../assets/image-profile-mobile.webp';
 import tablet from '../../assets/image-profile-tablet.webp';
 import desktop from '../../assets/image-profile-desktop.jpg';
 import { motion } from 'framer-motion';
+import { aboutButtons } from '../../utils/constants';
 
 const textVariant = {
   initial: {
@@ -30,6 +31,7 @@ const buttonVariant = {
     opacity: 1,
     y: 0,
     transition: {
+      when: 'beforeChildren',
       type: 'tween',
       ease: 'circOut',
       duration: 0.5,
@@ -49,13 +51,6 @@ const pictureVariant = {
 };
 
 const About = () => {
-  const element = () => {
-    const contact = document.getElementById('contact');
-    if (contact) {
-      contact.scrollIntoView();
-    }
-  };
-
   return (
     <div className={style.title}>
       <motion.picture
@@ -83,12 +78,23 @@ const About = () => {
         accessible websites and web apps that users love.`}
         </p>
 
-        <motion.div
+        <motion.ul
           className={style['title__buttonWrapper']}
           variants={buttonVariant}
         >
-          <Button text="contact me" type="button" element={element} />
-        </motion.div>
+          {aboutButtons.map((button) => {
+            const { text, id, element } = button;
+            return (
+              <motion.li
+                key={id}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, transition: { delay: 1.025 * id } }}
+              >
+                <Button text={text} type="button" element={element} />
+              </motion.li>
+            );
+          })}
+        </motion.ul>
       </motion.div>
     </div>
   );
