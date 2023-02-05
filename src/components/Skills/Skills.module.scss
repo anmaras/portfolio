@@ -1,14 +1,16 @@
 @use '../../../styles/utils/' as *;
 
 .list {
+  margin-top: rem(80);
   display: grid;
   // justify-content: center;
   gap: rem(20);
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
 
   &__item {
     display: grid;
     justify-items: center;
+    touch-action: none;
 
     &:hover {
       color: var(--detailsColor);
