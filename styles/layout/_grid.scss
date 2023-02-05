@@ -23,14 +23,16 @@
     border-bottom: 2px solid var(--textGrey);
 
     @include breakpoint(xlarge) {
-      padding-bottom: rem(180);
+      padding-bottom: rem(148);
       position: relative;
     }
   }
   &__skills {
-    padding-block: rem(40);
-    border-bottom: 2px solid var(--textGrey);
+    padding-block: rem(80);
+    // border-bottom: 2px solid var(--textGrey);
+    border-top: 2px solid var(--textGrey);
   }
+
   &__projects {
     padding-block: rem(80);
   }
