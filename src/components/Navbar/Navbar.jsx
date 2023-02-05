@@ -39,7 +39,7 @@ const Navbar = ({ position }) => {
             <AiFillLinkedin className={style['navbar__icon']} size={25} />
           </motion.a>
           <motion.a
-            href="https://drive.google.com/file/d/1fYLLkYhRYBeM3wp7acC0h9yIYNbkur4z/view?usp=share_link"
+            href="https://drive.google.com/file/d/1UvX-uO5BkgNZQIKLq68BQgP3_VGgXSFN/view?usp=share_link"
             title="CV"
             rel="noreferrer"
             target="_blank"
