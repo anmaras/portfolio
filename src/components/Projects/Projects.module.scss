@@ -5,16 +5,12 @@
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: rem(32);
 
-  @include breakpoint(medium) {
-    grid-template-columns: 1fr 1fr;
-  }
-
   &__item {
     display: grid;
     grid-template-rows: auto auto 1fr 1fr auto;
     gap: rem(20);
 
-    align-items: center;
+    align-items: flex-start;
 
     @include breakpoint(medium) {
       align-items: baseline;
@@ -23,6 +19,16 @@
 
   &__imgWrapper {
     position: relative;
+    z-index: 10;
+  }
+
+  &__img::before {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(var(--gradient), transparent, var(--gradient));
   }
 
   &__backdrop {
@@ -52,7 +58,19 @@
   }
 
   &__name {
+    position: relative;
     text-transform: uppercase;
+
+    &::after {
+      content: '';
+      width: 100%;
+      height: 2px;
+
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      background-color: var(--textGrey);
+    }
   }
 
   &__description {
