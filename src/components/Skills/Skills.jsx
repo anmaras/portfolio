@@ -9,7 +9,6 @@ const Skills = () => {
   const constraintsRef = useRef(null);
   return (
     <>
-      <h2 className="headingXL">Skills</h2>
       <ul ref={constraintsRef} className={style.list}>
         {skills.map((skill, index) => {
           const { iconUrl, id, icon } = skill;
