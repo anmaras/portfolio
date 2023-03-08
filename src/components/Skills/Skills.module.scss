@@ -1,19 +1,23 @@
 @use '../../../styles/utils/' as *;
 
 .list {
-  margin-top: rem(80);
   display: grid;
-  // justify-content: center;
-  gap: rem(20);
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  row-gap: rem(30);
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  justify-content: center;
 
   &__item {
     display: grid;
     justify-items: center;
-    touch-action: none;
+    grid-template-rows: 1fr auto;
+    align-items: center;
 
     &:hover {
       color: var(--detailsColor);
+    }
+
+    [data-name='Layer 1']:hover {
+      fill: var(--detailsColor);
     }
   }
 }
