@@ -19,7 +19,6 @@ const Projects = () => {
           const {
             id,
             title: name,
-            tech,
             urlSmall,
             urlBig,
             githubUrl,
@@ -76,7 +75,7 @@ const Projects = () => {
                 {name}
               </h3>
               <p className={style['projects__description']}>{description}</p>
-              <ul className={style['projects__techList']}>
+              {/* <ul className={style['projects__techList']}>
                 {tech.map((item, index) => {
                   return (
                     <li className={style['projects__tech']} key={index}>
@@ -84,7 +83,7 @@ const Projects = () => {
                     </li>
                   );
                 })}
-              </ul>
+              </ul> */}
               <div className={style['projects__buttonsWrapper']}>
                 <Button text="view project" type="link" link={liveUrl} />
                 <Button text="view code" type="link" link={githubUrl} />
