@@ -25,17 +25,25 @@ const textVariant = {
 const buttonVariant = {
   initial: {
     opacity: 0,
-    y: 50,
   },
   animate: {
     opacity: 1,
-    y: 0,
     transition: {
-      when: 'beforeChildren',
       type: 'tween',
       ease: 'circOut',
       duration: 0.5,
+      staggerChildren: 0.2,
     },
+  },
+};
+
+const listItemVariant = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {},
   },
 };
 
@@ -85,11 +93,7 @@ const About = () => {
           {aboutButtons.map((button) => {
             const { text, id, element } = button;
             return (
-              <motion.li
-                key={id}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1, transition: { delay: 1.025 * id } }}
-              >
+              <motion.li key={id} variants={listItemVariant}>
                 <Button text={text} type="button" element={element} />
               </motion.li>
             );
