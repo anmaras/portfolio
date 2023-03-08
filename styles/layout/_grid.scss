@@ -20,7 +20,6 @@
 
   &__about {
     padding-bottom: rem(80);
-    border-bottom: 2px solid var(--textGrey);
 
     @include breakpoint(xlarge) {
       padding-bottom: rem(148);
@@ -29,7 +28,7 @@
   }
   &__skills {
     padding-block: rem(80);
-    // border-bottom: 2px solid var(--textGrey);
+    border-bottom: 2px solid var(--textGrey);
     border-top: 2px solid var(--textGrey);
   }
 
