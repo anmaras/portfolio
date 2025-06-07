@@ -1,4 +1,4 @@
-@use '../../../styles/utils/' as *;
+@use "../../../styles/utils/" as *;
 
 .title {
   display: grid;
@@ -59,7 +59,11 @@
       max-width: unset;
     }
 
-    span {
+    span:first-child {
+      margin-inline: 1rem;
+    }
+
+    span:last-child {
       white-space: nowrap;
       background-image: linear-gradient(
           var(--detailsColor),
