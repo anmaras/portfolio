@@ -1,9 +1,9 @@
-import React from 'react';
-import { skills } from '../../utils/constants';
-import style from './Skills.module.scss';
-import { IconContext } from 'react-icons/lib';
-import { motion } from 'framer-motion';
-import { useRef } from 'react';
+import React from "react";
+import { skills } from "../../utils/constants";
+import style from "./Skills.module.scss";
+import { IconContext } from "react-icons/lib";
+import { motion } from "framer-motion";
+import { useRef } from "react";
 
 const Skills = () => {
   const constraintsRef = useRef(null);
@@ -14,9 +14,9 @@ const Skills = () => {
         return (
           <motion.li
             key={id}
-            className={style['list__item']}
+            className={style["list__item"]}
             whileHover={{ scale: 1.2 }}
-            transition={{ type: 'spring', stiffness: 800, damping: 10 }}
+            transition={{ type: "spring", stiffness: 800, damping: 10 }}
             initial={{ opacity: 0 }}
             animate={{
               opacity: 1,
@@ -24,11 +24,11 @@ const Skills = () => {
             }}
           >
             <IconContext.Provider
-              value={{ className: `${style['list__img']}`, size: 70 }}
+              value={{ className: `${style["list__img"]}`, size: 70 }}
             >
               {iconUrl}
             </IconContext.Provider>
-            <p className={[style['list__text']].join(' ')}>{icon}</p>
+            <p className={[style["list__text"]].join(" ")}>{icon}</p>
           </motion.li>
         );
       })}
