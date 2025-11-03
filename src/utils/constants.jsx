@@ -6,6 +6,7 @@ import memorySmall from "../assets/memory-small.webp";
 import memoryLarge from "../assets/memory-large.webp";
 import weatherSmall from "../assets/kanban-mobile.jpg";
 import weatherLarge from "../assets/kanban-large.jpg";
+import { SiTypescript, SiNx } from "react-icons/si";
 
 import {
   DiCss3,
@@ -24,6 +25,8 @@ export const skills = [
   { iconUrl: <DiAngularSimple />, icon: "Angular", id: 4 },
   { iconUrl: <DiIonic />, icon: "Ionic", id: 5 },
   { iconUrl: <FiFigma />, icon: "Figma", id: 6 },
+  { iconUrl: <SiTypescript />, icon: "TypeScript", id: 7 },
+  { iconUrl: <SiNx />, icon: "Nx", id: 8 },
 ];
 
 export const projects = [
